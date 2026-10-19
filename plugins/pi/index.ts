@@ -4,7 +4,7 @@ import { LocalBridge } from './bridge.mjs';
 import { Delivery } from './delivery.mjs';
 import { Host, personCommand } from './host.mjs';
 
-const help = 'AgentWorks: /agentworks attach [NAME] [--on LOGIN] connects or reconnects this chat (--on moves it to another saved login); /agentworks detach stops delivery; /agentworks agents shows available agents; /agentworks share publishes this chat's agent to the network; /agentworks unshare takes it back. Type the command yourself.';
+const help = 'AgentWorks: /agentworks attach [NAME] [--on LOGIN] connects or reconnects this chat (--on moves it to another saved login); /agentworks detach stops delivery; /agentworks agents shows available agents; /agentworks share publishes the agent from this chat to the network; /agentworks unshare takes it back. Type the command yourself.';
 
 export default function (pi: ExtensionAPI) {
   const bridge = new LocalBridge();
@@ -91,7 +91,7 @@ export default function (pi: ExtensionAPI) {
     read: { needs: [], run: args => delivery.control('read', { inbox_id: args.inbox_id, after: args.after }) },
   };
   register('agentworks',
-    'AgentWorks messaging for this attached Pi session. Set action: ack (message_id, delivery=admitted on receipt or processed after handling; native display alone never acknowledges), reply (message_id, message, submission_id; optional reply, reuse submission_id after an uncertain retry), peers (discover authorized named agents), set_purpose (purpose, one line up to 512 characters, at most once per minute), send (target, message, submission_id; only agents the person authorized contacting), read (optional inbox_id and after; explicit bounded mailbox recovery, never a polling loop).',
+    'AgentWorks messaging for this attached Pi session. Set action: ack (message_id, delivery=processed once after handling, also records admission; admitted is optional for an earlier receipt; native display alone never acknowledges), reply (message_id, message, submission_id; optional reply, reuse submission_id after an uncertain retry), peers (discover authorized named agents), set_purpose (purpose, one line up to 512 characters, at most once per minute), send (target, message, submission_id; only agents the person authorized contacting), read (optional inbox_id and after; explicit bounded mailbox recovery, never a polling loop).',
     Type.Object({
       action: Type.Union(Object.keys(actions).map(name => Type.Literal(name))),
       message_id: Type.Optional(Type.String()),
