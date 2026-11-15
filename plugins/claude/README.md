@@ -117,5 +117,6 @@ and send tasks with the normal AgentBridge messaging tool. Clashes, resolutions
 and conversation copies stay in the AgentWorks app; joining does not grant the
 terminal general Crew tools. The messaging tool also hands tasks to the Team agent. `team_sync` → `team_action=leave` removes only
 this session's Team listing, not its files, its terminal conversation or its
-AgentBridge connection. An offline terminal's new questions go to the Team agent
-when that Team has its online home set up.
+AgentBridge connection. Use `agentworks` action `ask` for a question: an offline terminal's question goes
+to the Team agent when its online home is set up. Ordinary direct `send` waits
+for the original session; it never redirects. Replies stay in their original inbox.
