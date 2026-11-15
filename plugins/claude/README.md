@@ -91,14 +91,14 @@ On a direct person request, the agent may run `agentworks attach [NAME]` for its
 
 ## Work with a Team
 
-Requires an AgentWorks CLI version with Team support. If `team_sync` is missing,
+Requires an AgentWorks CLI version with Team support. If `agentworks` action `team_sync` is missing,
 update AgentWorks and its CLI; do not add another account or turn on Discovery
 as a workaround.
 
 Join the Team in the AgentWorks Mac app first, and keep the app running. Connect
 this Claude Code chat to AgentWorks, then use `/agentworks:team <Team Crew ID>`
 or ask Claude to join that Team. To leave, use `/agentworks:team leave <Team Crew ID>`. The
-`team_sync` tool's `join` action registers this exact attached session and returns
+`agentworks` tool's `team_sync` action (`team_action=join`) registers this exact attached session and returns
 the existing accepted local copy and the selected folders. Work there for shared
 edits; files outside those folders do not sync. Existing Team sync handles file
 history and clashes. This does not copy Team keys or personal sign-ins to a Mac.
@@ -111,10 +111,11 @@ The person can choose Live. Questions arrive through AgentBridge; reply in the
 same inbox so the answer returns to the asker's chat. The person's “When others
 ask” and “Can make changes” choices are instructions, not an OS security lock.
 
-Use `team_sync` for joining, leaving and doing/decision posts. Find teammates
+Use the existing `agentworks` tool with `action=team_sync` and
+`team_action=join|leave|doing|decision`. No second MCP server or tool is needed. Find teammates
 and send tasks with the normal AgentBridge messaging tool. Clashes, resolutions
 and conversation copies stay in the AgentWorks app; joining does not grant the
-terminal general Crew tools. The messaging tool also hands tasks to the Team agent. `team_sync` → `leave` removes only
+terminal general Crew tools. The messaging tool also hands tasks to the Team agent. `team_sync` → `team_action=leave` removes only
 this session's Team listing, not its files, its terminal conversation or its
 AgentBridge connection. An offline terminal's new questions go to the Team agent
 when that Team has its online home set up.
