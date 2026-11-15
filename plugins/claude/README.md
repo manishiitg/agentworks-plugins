@@ -88,3 +88,31 @@ claude plugin update agentworks@agentworks
 Plugin updates do not update the AgentWorks CLI or server, attach chats, or approve hook trust.
 
 On a direct person request, the agent may run `agentworks attach [NAME]` for its own detected chat without installing a plugin. It may also run own detach; Codex limits this to leases originally created through own CLI attach. Person-created Codex leases retain the person detach command. No session overrides, other-chat selection or trust changes are permitted. `agentworks agent` aliases `agents`; purpose may describe responsibilities in up to 512 characters. Routing hints do not isolate same-user credentials.
+
+## Work with a Team
+
+Requires an AgentWorks CLI version with Team support. If `team_sync` is missing,
+update AgentWorks and its CLI; do not add another account or turn on Discovery
+as a workaround.
+
+Join the Team in the AgentWorks Mac app first, and keep the app running. Connect
+this Claude Code chat to AgentWorks, then ask Claude to join that Team. The
+`team_sync` tool's `join` action registers this exact attached session and returns
+the existing accepted local copy and the selected folders. Work there for shared
+edits; files outside those folders do not sync. Existing Team sync handles file
+history and clashes. This does not copy Team keys or personal sign-ins to a Mac.
+If a task needs the Team's server-only keys, message the Team agent to do it.
+
+The session starts **Only me**. In AgentWorks → Team → Agents, choose **In team**
+to let teammates ask it. **Answers only** is the default: explicit doing/decision
+posts and replies to their questions, not the private terminal conversation.
+The person can choose Live. Questions arrive through AgentBridge; reply in the
+same inbox so the answer returns to the asker's chat. The person's “When others
+ask” and “Can make changes” choices are instructions, not an OS security lock.
+
+Use `team_sync` for doing/decision posts, decisions, agents, clashes, resolve and
+forks. Resolve a clash only after reading both versions. The normal AgentWorks
+messaging tool hands tasks to the Team agent. `team_sync` → `leave` removes only
+this session's Team listing, not its files, its terminal conversation or its
+AgentBridge connection. An offline terminal's new questions go to the Team agent
+when that Team has its online home set up.
