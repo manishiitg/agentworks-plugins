@@ -96,7 +96,8 @@ update AgentWorks and its CLI; do not add another account or turn on Discovery
 as a workaround.
 
 Join the Team in the AgentWorks Mac app first, and keep the app running. Connect
-this Claude Code chat to AgentWorks, then ask Claude to join that Team. The
+this Claude Code chat to AgentWorks, then use `/agentworks:team <Team Crew ID>`
+or ask Claude to join that Team. To leave, use `/agentworks:team leave <Team Crew ID>`. The
 `team_sync` tool's `join` action registers this exact attached session and returns
 the existing accepted local copy and the selected folders. Work there for shared
 edits; files outside those folders do not sync. Existing Team sync handles file
