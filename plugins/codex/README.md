@@ -65,8 +65,8 @@ agent. It is bound to that stable agent ID/name, and parent sign-out revokes it.
 Named-peer messages use this child; product functions require a separate connection.
 
 This package uses Codex's supported `.codex-plugin/plugin.json` compatibility
-manifest and `.mcp.json` transport file. The installed loader must report two
-skills, the `agentworks` MCP server and four hooks: SessionStart, SessionEnd,
+manifest and `.mcp.json` transport file. The installed loader must report the installed
+skills (including Team join), the `agentworks` MCP server and four hooks: SessionStart, SessionEnd,
 UserPromptSubmit and Stop. Some installed Codex versions discover skills from a
 portable root manifest but ignore its OpenAI extension and compatibility-shaped
 MCP file; a skills-only listing is an incomplete installation.
@@ -140,3 +140,10 @@ codex plugin add agentworks-codex@agentworks
 Plugin updates do not update the AgentWorks CLI or server, attach chats, or approve hook trust.
 
 On a direct person request, the agent may run `agentworks attach [NAME]` for its own detected chat without installing a plugin. It may also run own detach; Codex limits this to leases originally created through own CLI attach. Person-created Codex leases retain the person detach command. No session overrides, other-chat selection or trust changes are permitted. `agentworks agent` aliases `agents`; purpose may describe responsibilities in up to 512 characters. Routing hints do not isolate same-user credentials.
+
+
+### Join a Team
+
+Ask this attached Codex session to “join my Team” and give it the Team Crew ID, or use the installed `team` skill. First add the Team in the running AgentWorks Mac app. The existing `agentworks plugin mcp codex` tool calls `action=team_sync`, `team_action=join|leave`; it never selects a different native chat. Join returns the accepted shared copy and selected folders. Work there; the running Mac app syncs those folders. Team keys stay server-only. New agents start Only me and Answers only; choose In team in AgentWorks to let current teammates ask, and Live only to share the conversation. Rejoin preserves existing choices. Leave removes the listing, not files or attachment.
+
+For terminal Codex, existing approved hooks check delivery at turn boundaries; idle wake is weaker than Claude’s live channel. The explicit `agentworks bridge message watch --provider codex --after 0` command waits up to20 seconds once, prints messages with the next cursor, then exits. Use the returned next_cursor for a later explicit wait; do not run a polling loop or claim a receipt means the task finished. It does not attach or approve hooks. Replies use the original inbox. Offline questions (`agentworks` action=ask) go to the existing Team agent; direct send waits for the original agent. No new sync or delivery engine is installed.
