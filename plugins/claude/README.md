@@ -110,9 +110,10 @@ The person can choose Live. Questions arrive through AgentBridge; reply in the
 same inbox so the answer returns to the asker's chat. The person's “When others
 ask” and “Can make changes” choices are instructions, not an OS security lock.
 
-Use `team_sync` for doing/decision posts, decisions, agents, clashes, resolve and
-forks. Resolve a clash only after reading both versions. The normal AgentWorks
-messaging tool hands tasks to the Team agent. `team_sync` → `leave` removes only
+Use `team_sync` for joining, leaving and doing/decision posts. Find teammates
+and send tasks with the normal AgentBridge messaging tool. Clashes, resolutions
+and conversation copies stay in the AgentWorks app; joining does not grant the
+terminal general Crew tools. The messaging tool also hands tasks to the Team agent. `team_sync` → `leave` removes only
 this session's Team listing, not its files, its terminal conversation or its
 AgentBridge connection. An offline terminal's new questions go to the Team agent
 when that Team has its online home set up.
