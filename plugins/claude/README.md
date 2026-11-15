@@ -104,8 +104,8 @@ edits; files outside those folders do not sync. Existing Team sync handles file
 history and clashes. This does not copy Team keys or personal sign-ins to a Mac.
 If a task needs the Team's server-only keys, message the Team agent to do it.
 
-The session starts **Only me**. In AgentWorks → Team → Agents, choose **In team**
-to let teammates ask it. **Answers only** is the default: explicit doing/decision
+The session starts **In team**: teammates can now ask it. Switch to **Only me**
+in AgentWorks → Team → Agents to hide it. Making changes for others is off by default. **Answers only** is the default: explicit doing/decision
 posts and replies to their questions, not the private terminal conversation.
 The person can choose Live. Questions arrive through AgentBridge; reply in the
 same inbox so the answer returns to the asker's chat. The person's “When others

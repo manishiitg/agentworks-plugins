@@ -12,11 +12,11 @@ Use the installed AgentWorks plugin MCP (`agentworks plugin mcp claude`), not a 
 3. For join, call the `agentworks` tool with `{"action":"team_sync","team_action":"join","project":"<Team Crew ID>"}`. The tool resolves this exact session and the accepted working copy; never supply a native session, owner, attachment or filesystem path. For an explicit leave request use `team_action=leave` instead.
 4. Report success only from a successful tool result. Show its actual `copy.path` and `copy.folders`, not an example or guessed `team-folders` path. If refused, explain the returned reason and stop.
 
-After a new join (`in_team=false` and `chat_share=agent`), give this short confirmation using the returned values:
+After a new join (`in_team=true` and `chat_share=agent`), give this short confirmation using the returned values:
 
-> Joined this Team as Only me. Your shared working copy is **[returned path]**; only **[returned folders]** sync. Keep the AgentWorks Mac app running. In Team → Agents, choose In team when you want teammates to ask you. Answers only is the default; Live shares the terminal conversation only if you choose it.
+> Joined this Team as In team. Your shared working copy is **[returned path]**; only **[returned folders]** sync. Keep the AgentWorks Mac app running. Teammates can now ask this agent; answers only. Switch to Only me in AgentWorks to hide it. Making changes for others is off by default; Live shares the terminal conversation only if you choose it.
 
-On rejoin, print the actual returned `in_team` and `chat_share_label` instead of saying it is Only me or Answers only: rejoin keeps the agent’s existing choices. Never silently change those choices.
+On rejoin, print the actual returned `in_team` and `chat_share_label` instead of assuming the defaults: rejoin keeps the agent’s existing choices. Never silently change those choices.
 
 Work in those selected folders for shared edits. Joining does not move the terminal's working directory automatically or grant general Crew tools. Team keys stay on the server. Clashes, resolutions and conversation copies stay in the app.
 
