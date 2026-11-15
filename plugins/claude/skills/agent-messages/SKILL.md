@@ -34,7 +34,7 @@ Continue in the same conversation with an explicit reply to the received message
 agentworks({"action":"reply","message_id":"RECEIVED_ID","message":"The parser review is complete.","submission_id":"parser-review-reply-1"})
 ```
 
-The reply tool retains the original inbox. Normal final chat text is not forwarded. If the sender asked you a question or for work, send your answer back to them with the messages tool (reply address above) when you're done, as one short message; don't reply to plain notices or status.
+The reply tool retains the original inbox. Normal final chat text is not forwarded. If the sender asked you a question or for work, send your answer back in the same inbox when you're done, as one short message; don't reply to plain notices or status.
 
 After attachment, describe your role, responsibilities and current work in a single paragraph of up to 512 characters. The directory may show a short preview; keep the actual purpose useful. Keep it current when starting owner-authorized work, including the current ticket when useful; purpose cannot rename, attach or grant access:
 
