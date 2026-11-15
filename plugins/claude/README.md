@@ -89,34 +89,10 @@ Plugin updates do not update the AgentWorks CLI or server, attach chats, or appr
 
 On a direct person request, the agent may run `agentworks attach [NAME]` for its own detected chat without installing a plugin. It may also run own detach; Codex limits this to leases originally created through own CLI attach. Person-created Codex leases retain the person detach command. No session overrides, other-chat selection or trust changes are permitted. `agentworks agent` aliases `agents`; purpose may describe responsibilities in up to 512 characters. Routing hints do not isolate same-user credentials.
 
-## Work with a Team
+### Join a Crew
 
-Requires an AgentWorks CLI version with Team support. If `agentworks` action `team_sync` is missing,
-update AgentWorks and its CLI; do not add another account or turn on Discovery
-as a workaround.
+Connect this exact native chat to AgentWorks, then ask it to “join my Crew” and give the Crew ID. Use `/agentworks:crew <Crew ID>` or `/agentworks:crew leave <Crew ID>`. The existing plugin MCP `agentworks` tool uses `action=join|leave` and `project=<Crew ID>`; no session or path overrides. You must own the Crew or be a current member of its active Team. The join returns the Crew instructions and its local folder or accepted Team copy. Work there; keep the Mac app running for shared file sync. If there is no accepted local copy, join still works but the files stay on the server: ask its agents, or add the Crew to this Mac in AgentWorks. No server path is returned.
 
-Join the Team in the AgentWorks Mac app first, and keep the app running. Connect
-this Claude Code chat to AgentWorks, then use `/agentworks:team <Team Crew ID>`
-or ask Claude to join that Team. To leave, use `/agentworks:team leave <Team Crew ID>`. The
-`agentworks` tool's `team_sync` action (`team_action=join`) registers this exact attached session and returns
-the existing accepted local copy and the selected folders. Work there for shared
-edits; files outside those folders do not sync. Existing Team sync handles file
-history and clashes. This does not copy Team keys or personal sign-ins to a Mac.
-If a task needs the Team's server-only keys, message the Team agent to do it.
+With Team on, a new session starts **Shared with team**, **Answers only**, with no permission to make changes for others. Switch to **Only me** to hide it or explicitly choose **Live** to share the native conversation. With Team off, only you and your own agents can reach it; turning Team on later needs no rejoin. Rejoin preserves choices. One native agent belongs to one Crew: leave before joining another. A saved Discovery publication is suspended while joined, not deleted; leaving restores it unchanged.
 
-The session starts **Shared with team**: teammates can now ask it. Switch to **Only me**
-in AgentWorks → Team → Agents to hide it. Making changes for others is off by default. **Answers only** is the default: explicit doing/decision
-posts and replies to their questions, not the private terminal conversation.
-The person can choose Live. Questions arrive through AgentBridge; reply in the
-same inbox so the answer returns to the asker's chat. The person's “When others
-ask” and “Can make changes” choices are instructions, not an OS security lock.
-
-Use the existing `agentworks` tool with `action=team_sync` and
-`team_action=join|leave|doing|decision`. No second MCP server or tool is needed. Find teammates
-and send tasks with the normal AgentBridge messaging tool. Clashes, resolutions
-and conversation copies stay in the AgentWorks app; joining does not grant the
-terminal general Crew tools. The messaging tool also hands tasks to the Team agent. `team_sync` → `team_action=leave` removes only
-this session's Team listing, not its files, its terminal conversation or its
-AgentBridge connection. Use `agentworks` action `ask` for a question: an offline terminal's question goes
-to the Team agent when its online home is set up. Ordinary direct `send` waits
-for the original session; it never redirects. Replies stay in their original inbox.
+Team doing/decision posts use `action=team_sync`, `team_action=doing|decision`. Normal AgentBridge handles discovery, asks, replies and server-owned instructions. Offline ASKs go to the Team agent if available; direct sends wait. Answer questions/work in the original inbox, not final chat text. Joining does not grant general Crew tools or copy Team keys or logins to the Mac. Leave removes only the listing, not files or the attachment.
